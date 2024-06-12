@@ -11,10 +11,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController("/users")
+@RestController
+@RequestMapping("/users")
 @Slf4j
 public class UserController {
-    private Map<Long, User> users = new HashMap<>();
+    private final Map<Long, User> users = new HashMap<>();
 
     @GetMapping
     public Collection<User> getUsers() {
@@ -22,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         validate(user);
 
         user.setId(getNextId());
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @PutMapping
-    public User update(@RequestBody User newUser) {
+    public User updateUser(@RequestBody User newUser) {
         if (!users.containsKey(newUser.getId())) {
             log.warn("Пользователь не был найден");
             throw new NotFoundException("Пользователя с таким ID не существует");
@@ -77,7 +78,7 @@ public class UserController {
             log.warn("Пользователь не прошел валидацию");
             throw new ValidateException(("Логин не должен содержать пробелов"));
         }
-        if (user.getName().isBlank()) {
+        if (user.getName() == null) {
             log.debug("Смена имени пользователя на логин");
             user.setName(user.getLogin());
         }

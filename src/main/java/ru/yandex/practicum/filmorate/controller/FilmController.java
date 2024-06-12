@@ -11,10 +11,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController("/films")
+@RestController
+@RequestMapping("/films")
 @Slf4j
 public class FilmController {
-    private Map<Long, Film> films = new HashMap<>();
+    private final Map<Long, Film> films = new HashMap<>();
 
     @GetMapping
     public Collection<Film> getFilms() {
@@ -22,7 +23,7 @@ public class FilmController {
     }
 
     @PostMapping
-    public Film create(@RequestBody Film film) {
+    public Film createFilm(@RequestBody Film film) {
         validate(film);
 
         film.setId(getNextId());

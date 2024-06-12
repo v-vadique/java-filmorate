@@ -23,8 +23,8 @@ public class UserControllerTest {
 
     @Test
     public void getUsersTest() {
-        userController.create(user1);
-        userController.create(user2);
+        userController.createUser(user1);
+        userController.createUser(user2);
 
         Collection<User> users = userController.getUsers();
         assertEquals(2, users.size());
@@ -32,19 +32,19 @@ public class UserControllerTest {
     }
 
     @Test
-    public void createUserTest() {
-        User newUser1 = userController.create(user1);
-        User newUser2 = userController.create(user2);
+    public void createUserUserTest() {
+        User newUser1 = userController.createUser(user1);
+        User newUser2 = userController.createUser(user2);
 
         assertTrue(userController.getUsers().contains(newUser1));
         assertEquals(newUser2.getLogin(), newUser2.getName());
     }
 
     @Test
-    public void updateUserTest() {
-        User oldUser = userController.create(user1);
+    public void updateUserUserTest() {
+        User oldUser = userController.createUser(user1);
         user2.setId(1L);
-        User newUser = userController.update(user2);
+        User newUser = userController.updateUser(user2);
 
         assertTrue(userController.getUsers().contains(newUser));
         assertEquals(1, userController.getUsers().size());

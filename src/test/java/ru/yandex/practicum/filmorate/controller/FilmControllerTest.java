@@ -26,8 +26,8 @@ public class FilmControllerTest {
 
     @Test
     public void getFilmsTest() {
-        filmController.create(film1);
-        filmController.create(film2);
+        filmController.createFilm(film1);
+        filmController.createFilm(film2);
 
         Collection<Film> films = filmController.getFilms();
         assertNotNull(films);
@@ -36,8 +36,8 @@ public class FilmControllerTest {
     }
 
     @Test
-    public void createFilmTest() {
-        Film newFilm = filmController.create(film1);
+    public void createFilmFilmTest() {
+        Film newFilm = filmController.createFilm(film1);
 
         assertEquals(film1, newFilm);
         assertNotEquals(film2, newFilm);
@@ -45,7 +45,7 @@ public class FilmControllerTest {
 
     @Test
     public void updateFilmTest() {
-        Film oldFilm = filmController.create(film1);
+        Film oldFilm = filmController.createFilm(film1);
         film2.setId(1L);
         Film newFilm = filmController.updateFilm(film2);
 
