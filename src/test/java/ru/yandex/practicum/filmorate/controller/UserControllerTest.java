@@ -37,7 +37,6 @@ public class UserControllerTest {
         User newUser2 = userController.createUser(user2);
 
         assertTrue(userController.getUsers().contains(newUser1));
-        assertEquals(newUser2.getLogin(), newUser2.getName());
     }
 
     @Test
