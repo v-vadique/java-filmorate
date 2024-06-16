@@ -11,9 +11,9 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FilmControllerTest {
-    FilmController filmController;
-    Film film1;
-    Film film2;
+    private FilmController filmController;
+    private Film film1;
+    private Film film2;
 
     @BeforeEach
     public void beforeEach() {

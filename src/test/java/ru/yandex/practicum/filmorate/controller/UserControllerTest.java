@@ -10,9 +10,9 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserControllerTest {
-    UserController userController;
-    User user1;
-    User user2;
+    private UserController userController;
+    private User user1;
+    private User user2;
 
     @BeforeEach
     public void beforeEach() {
